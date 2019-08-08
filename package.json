@@ -1,0 +1,29 @@
+{
+  "name": "@cypress/instrument-cra",
+  "version": "1.0.0",
+  "description": "Little module for CRA applications to instrument code without ejecting react-scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypress-io/instrument-cra.git"
+  },
+  "keywords": [
+    "cra",
+    "react-scripts",
+    "istanbul"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "private": false,
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cypress-io/instrument-cra/issues"
+  },
+  "homepage": "https://github.com/cypress-io/instrument-cra#readme",
+  "dependencies": {
+    "babel-plugin-istanbul": "5.2.0",
+    "debug": "4.1.1"
+  }
+}
