@@ -1,4 +1,4 @@
-const debug = require('instrument-cra')
+const debug = require('debug')('instrument-cra')
 const path = require('path')
 const webpackConfigPath = path.resolve(
   process.cwd(),
