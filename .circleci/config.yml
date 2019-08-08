@@ -1,0 +1,25 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.8.0
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          # we need to start the web application
+          start: npm start
+          wait-on: "http://localhost:3000"
+          # there are no jobs to follow this one
+          # so no need to save the workspace files (saves time)
+          no-workspace: true
+          post-steps:
+            # store the created coverage report folder
+            # you can click on it in the CircleCI UI
+            # to see live static HTML site
+            - store_artifacts:
+                path: coverage
+            # print code coverage summary to the terminal
+            # fail step if the coverage drops below 100%
+            - run: npx nyc report --check-coverage --statements 100
+            # publish new version if necessary
+            # - run: npm run semantic-release
+
