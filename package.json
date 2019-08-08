@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/cypress-io/instrument-cra.git"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "cra",
     "react-scripts",
