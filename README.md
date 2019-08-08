@@ -1,4 +1,4 @@
-# @cypress/instrument-cra [![CircleCI](https://circleci.com/gh/cypress-io/instrument-cra/tree/master.svg?style=svg&circle-token=50a3c2621735780756a505094eadb3cdca1699f2)](https://circleci.com/gh/cypress-io/instrument-cra/tree/master)
+# @cypress/instrument-cra [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/cypress-io/instrument-cra/tree/master.svg?style=svg&circle-token=50a3c2621735780756a505094eadb3cdca1699f2)](https://circleci.com/gh/cypress-io/instrument-cra/tree/master)
 > Little module for CRA applications to instrument code without ejecting react-scripts
 
 ## Install and use
@@ -44,3 +44,6 @@ Run with environment variable `DEBUG=instrument-cra` to see the verbose logs
 ## License
 
 MIT License, see [LICENSE](LICENSE)
+
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
