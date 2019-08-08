@@ -21,5 +21,5 @@ workflows:
             # fail step if the coverage drops below 100%
             - run: npx nyc report --check-coverage --statements 100
             # publish new version if necessary
-            # - run: npm run semantic-release
+            - run: npm run semantic-release
 
