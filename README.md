@@ -1,4 +1,4 @@
-# @cypress/instrument-cra
+# @cypress/instrument-cra [![CircleCI](https://circleci.com/gh/cypress-io/instrument-cra/tree/master.svg?style=svg&circle-token=50a3c2621735780756a505094eadb3cdca1699f2)](https://circleci.com/gh/cypress-io/instrument-cra/tree/master)
 > Little module for CRA applications to instrument code without ejecting react-scripts
 
 ## Install and use
