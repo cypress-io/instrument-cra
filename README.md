@@ -21,6 +21,8 @@ This module assumes standard [Create-React-App v3](https://github.com/facebook/c
 
 When the app starts with `yarn start`, you should see the coverage information under `window.__coverage__` information.
 
+![Coverage object](images/coverage.png)
+
 The instrumentation is done using [Istanbul.js](https://istanbul.js.org/) via [babel-plugin-istanbul](https://github.com/istanbuljs/babel-plugin-istanbul) and is compatible with [@cypress/code-coverage](https://github.com/cypress-io/code-coverage) plugin.
 
 ## Exclude files
