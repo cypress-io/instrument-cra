@@ -4,7 +4,10 @@
   "description": "Little module for CRA applications to instrument code without ejecting react-scripts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "start": "react-scripts -r . start",
+    "cy:open": "cypress open",
+    "dev": "start-test 3000 cy:open"
   },
   "repository": {
     "type": "git",
@@ -28,5 +31,25 @@
   "dependencies": {
     "babel-plugin-istanbul": "5.2.0",
     "debug": "4.1.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "@cypress/code-coverage": "1.8.0",
+    "cypress": "3.4.1",
+    "istanbul-lib-coverage": "2.0.5",
+    "nyc": "14.1.1",
+    "start-server-and-test": "1.9.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
