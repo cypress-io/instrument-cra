@@ -1,7 +1,9 @@
 const debug = require('debug')('instrument-cra')
 const path = require('path')
+const findYarnWorkspaceRoot = require('find-yarn-workspace-root')
+
 const webpackConfigPath = path.resolve(
-  process.cwd(),
+  findYarnWorkspaceRoot() || process.cwd(),
   'node_modules',
   'react-scripts',
   'config',
