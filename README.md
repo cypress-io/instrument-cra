@@ -41,6 +41,10 @@ If you want to exclude files from coverage, for example `src/serviceWorker.js`, 
 
 Run with environment variable `DEBUG=instrument-cra` to see the verbose logs
 
+## Examples
+
+- [React JavaScript app](https://github.com/bahmutov/testing-react)
+
 ## License
 
 MIT License, see [LICENSE](LICENSE)
