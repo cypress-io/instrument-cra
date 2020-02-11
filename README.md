@@ -44,6 +44,7 @@ Run with environment variable `DEBUG=instrument-cra` to see the verbose logs
 ## Examples
 
 - [React JavaScript app](https://github.com/bahmutov/testing-react)
+- [React TypeScript app](https://github.com/bahmutov/cra-ts-code-coverage-example)
 
 ## License
 
