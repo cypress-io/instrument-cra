@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/cypress-io/instrument-cra#readme",
   "dependencies": {
-    "babel-plugin-istanbul": "5.2.0",
+    "babel-plugin-istanbul": "6.0.0",
     "debug": "4.1.1",
     "find-yarn-workspace-root": "^1.2.1"
   },
