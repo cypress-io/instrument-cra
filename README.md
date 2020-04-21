@@ -41,6 +41,14 @@ If you want to exclude files from coverage, for example `src/serviceWorker.js`, 
 
 Run with environment variable `DEBUG=instrument-cra` to see the verbose logs
 
+## Notes
+
+If you try to start the application, and `react-scripts` shows an error `There might be a problem with the project dependency tree.`, just create a local file `.env` with. The problem is due to several versions of `babel-loader` dependency between this plugin and your application.
+
+```
+SKIP_PREFLIGHT_CHECK=true
+```
+
 ## Examples
 
 - [React JavaScript app](https://github.com/bahmutov/testing-react)
