@@ -20,6 +20,10 @@ workflows:
             # print code coverage summary to the terminal
             # fail step if the coverage drops below 100%
             - run: npx nyc report --check-coverage --statements 100
+            - run: |
+                npx check-coverage App.js
+                npx check-coverage index.js
+                npx only-covered --from coverage/coverage-final.json App.js index.js
             # publish new version if necessary
             - run: npm run semantic-release
 
