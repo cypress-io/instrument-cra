@@ -8,6 +8,7 @@
     "start": "react-scripts -r . start",
     "cy:open": "cypress open",
     "dev": "start-test 3000 cy:open",
+    "e2e": "start-test 3000",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -38,7 +39,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.3.1",
-    "@cypress/code-coverage": "3.4.1",
+    "@cypress/code-coverage": "3.4.2",
     "cypress": "4.4.1",
     "start-server-and-test": "1.11.0",
     "semantic-release": "15.14.0"
