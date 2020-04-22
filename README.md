@@ -37,6 +37,16 @@ If you want to exclude files from coverage, for example `src/serviceWorker.js`, 
 }
 ```
 
+## Instrument a fork
+
+To instrument a [fork of `react-scripts`](https://create-react-app.dev/docs/alternatives-to-ejecting/), provide the path to the new `webpack.config.js` in your `package.json` as `cypressWebpackConfigPath`, e.g.:
+
+```json
+{
+  "cypressWebpackConfigPath": "./node_modules/@my-org/my-react-scripts-fork/config/webpack.config.js"
+}
+```
+
 ## Debugging
 
 Run with environment variable `DEBUG=instrument-cra` to see the verbose logs
