@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.4.2",
-    "check-code-coverage": "1.7.1",
+    "check-code-coverage": "1.8.0",
     "cypress": "4.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
