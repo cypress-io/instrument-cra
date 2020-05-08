@@ -20,9 +20,7 @@ const webpackFactory = require(webpackConfigPath)
 
 function fakeConfig (envName) {
   if (envName !== 'development') {
-    throw new Error(
-      'Can overwrite cra webpack config only for development environment'
-    )
+    console.warn("WARNING - Modifying webpack outside of development environment")
   }
 
   debug('calling real CRA webpack factory with env "%s"', envName)
