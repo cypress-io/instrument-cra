@@ -19,7 +19,7 @@ process.env.NODE_ENV = 'development'
 const webpackFactory = require(webpackConfigPath)
 
 function fakeConfig (envName) {
-  if (envName !== 'development') {
+  if (envName !== 'development' && process.env.CYPRESS_INSTRUMENT_PRODUCTION !== 'true') {
     throw new Error(
       'Can overwrite cra webpack config only for development environment'
     )
