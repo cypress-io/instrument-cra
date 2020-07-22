@@ -47,6 +47,14 @@ To instrument a [fork of `react-scripts`](https://create-react-app.dev/docs/alte
 }
 ```
 
+## Force instrumentation
+
+Usually, the code is only instrumented in the `development` environment. If you want to force the instrumentation, set the environment variable
+
+```
+CYPRESS_INSTRUMENT_PRODUCTION=true
+```
+
 ## Debugging
 
 Run with environment variable `DEBUG=instrument-cra` to see the verbose logs

@@ -40,11 +40,19 @@ process.env.NODE_ENV = 'development'
 
 const webpackFactory = require(webpackConfigPath)
 
-function fakeConfig (envName) {
+function fakeConfig(envName) {
+  // sometimes we do want to instrument the production code
+  const instrumentProduction = process.env.CYPRESS_INSTRUMENT_PRODUCTION
+  const forced = instrumentProduction === 'true' || instrumentProduction === '1'
+  debug('checking the environment %o', {
+    envName, instrumentProduction, forced
+  })
   if (envName !== 'development') {
-    throw new Error(
-      'Can overwrite cra webpack config only for development environment'
-    )
+    if (!forced) {
+      throw new Error(
+        'Can overwrite cra webpack config only for development environment'
+      )
+    }
   }
 
   debug('calling real CRA webpack factory with env "%s"', envName)
