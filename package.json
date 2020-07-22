@@ -33,7 +33,7 @@
   "dependencies": {
     "babel-plugin-istanbul": "6.0.0",
     "debug": "4.1.1",
-    "find-yarn-workspace-root": "^1.2.1"
+    "find-yarn-workspace-root": "^2.0.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.4.2",
