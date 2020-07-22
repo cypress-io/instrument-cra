@@ -5,18 +5,24 @@ const findYarnWorkspaceRoot = require('find-yarn-workspace-root')
 const workspaceRoot = findYarnWorkspaceRoot() || process.cwd()
 const packagePath = path.resolve(workspaceRoot, 'package.json')
 
-let package = { cypressWebpackConfigPath: undefined }
+let cypressWebpackConfigPath
 try {
-  package = require(packagePath)
+  const package = require(packagePath)
+  if (package.cypressWebpackConfigPath) {
+    cypressWebpackConfigPath = package.cypressWebpackConfigPath
+  }
 } catch {
   debug('failed to read package.json at path: %s', packagePath)
 }
 
+debug('finding webpack config %o', {
+  workspaceRoot, cypressWebpackConfigPath
+})
 const webpackConfigPath =
-  package.cypressWebpackConfigPath !== undefined
+  cypressWebpackConfigPath
     ? path.resolve(
         workspaceRoot,
-        path.normalize(package.cypressWebpackConfigPath)
+        path.normalize(cypressWebpackConfigPath)
       )
     : path.resolve(
         workspaceRoot,
