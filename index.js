@@ -2,13 +2,29 @@ const debug = require('debug')('instrument-cra')
 const path = require('path')
 const findYarnWorkspaceRoot = require('find-yarn-workspace-root')
 
-const webpackConfigPath = path.resolve(
-  findYarnWorkspaceRoot() || process.cwd(),
-  'node_modules',
-  'react-scripts',
-  'config',
-  'webpack.config.js'
-)
+const workspaceRoot = findYarnWorkspaceRoot() || process.cwd()
+const packagePath = path.resolve(workspaceRoot, 'package.json')
+
+let package = { cypressWebpackConfigPath: undefined }
+try {
+  package = require(packagePath)
+} catch {
+  debug('failed to read package.json at path: %s', packagePath)
+}
+
+const webpackConfigPath =
+  package.cypressWebpackConfigPath !== undefined
+    ? path.resolve(
+        workspaceRoot,
+        path.normalize(package.cypressWebpackConfigPath)
+      )
+    : path.resolve(
+        workspaceRoot,
+        'node_modules',
+        'react-scripts',
+        'config',
+        'webpack.config.js'
+      )
 
 debug('path to react-scripts own webpack.config.js: %s', webpackConfigPath)
 
