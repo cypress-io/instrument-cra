@@ -43,7 +43,7 @@
     "react-dom": "16.13.1",
     "react-scripts": "3.3.1",
     "semantic-release": "17.1.2",
-    "start-server-and-test": "1.11.3"
+    "start-server-and-test": "1.11.4"
   },
   "eslintConfig": {
     "extends": "react-app"
