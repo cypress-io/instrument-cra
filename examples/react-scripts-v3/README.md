@@ -35,3 +35,7 @@ open coverage/lcov-report/index.html
 ```
 
 ![Code coverage report](images/report.png)
+
+## Notes
+
+`react-scripts` after v3.4.0 have a bug, and stop the [dev server immediately](https://github.com/cypress-io/instrument-cra/pull/197#issuecomment-716763878). The [pull request](https://github.com/facebook/create-react-app/pull/8807) to fix it was ignored and closed. Thus we in the [package.json](package.json) file we set the version to 3.4.0 for now.
