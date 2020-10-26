@@ -57,7 +57,7 @@ workflows:
           executor: cypress/base-12-14-0
           requires:
             - Install
-            - Root Tests
+            - Root tests
           install-command: echo 'Already installed'
           verify-command: echo 'Already verified'
           no-workspace: true
