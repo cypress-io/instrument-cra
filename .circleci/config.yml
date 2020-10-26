@@ -60,7 +60,7 @@ workflows:
             mv ../../node_modules ../../no_modules
           verify-command: echo 'Already verified'
           # we need to start the web application
-          start: npm start
+          start: CI=true npm start
           wait-on: "http://localhost:3000"
           command: npm test
           # there are no jobs to follow this one
