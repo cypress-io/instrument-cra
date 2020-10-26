@@ -43,7 +43,6 @@ workflows:
             # publish new version if necessary
             - run: npm run semantic-release
 
-
       - cypress/run:
           name: react-scripts v3
           requires:
@@ -74,6 +73,36 @@ workflows:
                   npm run only-covered
                 working_directory: examples/react-scripts-v3
 
+      - cypress/run:
+          name: react-scripts v4
+          requires:
+            - Install
+          executor: cypress/base-12-14-0
+          working_directory: examples/react-scripts-v4
+          install-command: |
+            ls -la ../..
+            echo ***Installing package from the root TGZ archive***
+            npm install -D ../../cypress-instrument-cra-0.0.0-development.tgz
+            echo ***Installing other dependencies***
+            npm install
+            echo ***rename root node_modules to avoid accidental dependencies***
+            mv ../../node_modules ../../no_modules
+          verify-command: echo 'Already verified'
+          # we need to start the web application
+          start: npm start
+          wait-on: "http://localhost:3000"
+          command: npm test
+          # there are no jobs to follow this one
+          # so no need to save the workspace files (saves time)
+          no-workspace: true
+          post-steps:
+            - run:
+                name: Check coverage 📈
+                command: |
+                  npm run check-coverage
+                  npm run only-covered
+                working_directory: examples/react-scripts-v4
+
       # this job attaches the workspace left by the install job
       # so it is ready to run Cypress tests
       # only we will run semantic release script instead
@@ -90,6 +119,7 @@ workflows:
             - Install
             - Root tests
             - react-scripts v3
+            - react-scripts v4
           install-command: echo 'Already installed'
           verify-command: echo 'Already verified'
           no-workspace: true
