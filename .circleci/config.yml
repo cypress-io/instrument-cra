@@ -59,7 +59,6 @@ workflows:
             echo ***rename root node_modules to avoid accidental dependencies***
             mv ../../node_modules ../../no_modules
           verify-command: echo 'Already verified'
-          build: npm ls -la
           # we need to start the web application
           start: npm start
           wait-on: "http://localhost:3000"
