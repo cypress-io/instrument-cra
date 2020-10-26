@@ -39,6 +39,7 @@
     "@cypress/code-coverage": "3.4.2",
     "check-code-coverage": "1.10.0",
     "cypress": "4.12.1",
+    "prettier": "2.1.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-scripts": "3.3.1",
