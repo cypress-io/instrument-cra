@@ -69,6 +69,13 @@ SKIP_PREFLIGHT_CHECK=true
 
 ## Examples
 
+### In this repository
+
+- [react-scripts v3](examples/react-scripts-v3)
+- [react-scripts v4](examples/react-scripts-v4)
+
+### External
+
 - [React JavaScript app](https://github.com/bahmutov/testing-react)
 - [React TypeScript app](https://github.com/bahmutov/cra-ts-code-coverage-example)
 
