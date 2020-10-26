@@ -4,8 +4,23 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run:
+      # install and cache dependencies in this job
+      # AND build the library once
+      # then the workspace will be passed to other jobs
+      - cypress/install:
+          name: Install
           executor: cypress/base-12-14-0
+          # creates cypress-instrument-cra-0.0.0-development.tgz file
+          # then saves everything in the workspace
+          build: |
+            npm pack
+
+      - cypress/run:
+          name: Root tests
+          requires:
+            - Install
+          executor: cypress/base-12-14-0
+          install-command: echo 'Nothing to install in this job'
           # we need to start the web application
           start: npm start
           wait-on: "http://localhost:3000"
@@ -28,3 +43,22 @@ workflows:
             # publish new version if necessary
             - run: npm run semantic-release
 
+      # this job attaches the workspace left by the install job
+      # so it is ready to run Cypress tests
+      # only we will run semantic release script instead
+      - cypress/run:
+          name: NPM release
+          # only run NPM release from specific branch(es)
+          filters:
+            branches:
+              only:
+                - master
+          # we need newer Node for semantic release
+          executor: cypress/base-12-14-0
+          requires:
+            - Install
+            - Root Tests
+          install-command: echo 'Already installed'
+          verify-command: echo 'Already verified'
+          no-workspace: true
+          command: npm run semantic-release
