@@ -6,8 +6,8 @@
     "start": "react-scripts -r @cypress/instrument-cra start",
     "test": "cypress-expect run --min-passing 1",
     "cy:open": "cypress open",
-    "check-coverage": "check-coverage src/App.js src/calc.js src/Child.js src/services.js src/RemotePizza.js cypress/fixtures/add.js src/add.js",
-    "only-covered": "only-covered src/App.js src/calc.js src/Child.js src/services.js src/RemotePizza.js cypress/fixtures/add.js src/add.js"
+    "check-coverage": "check-coverage src/App.js src/calc.js src/Child.js src/index.js",
+    "only-covered": "only-covered src/App.js src/calc.js src/Child.js src/index.js"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.8.2",
