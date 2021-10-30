@@ -2,7 +2,7 @@ const debug = require('debug')('instrument-cra')
 const path = require('path')
 const findYarnWorkspaceRoot = require('find-yarn-workspace-root')
 
-const workspaceRoot = findYarnWorkspaceRoot() || process.cwd()
+const workspaceRoot = findYarnWorkspaceRoot(__dirname) || process.cwd()
 const packagePath = path.resolve(workspaceRoot, 'package.json')
 
 let cypressWebpackConfigPath
