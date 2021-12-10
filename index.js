@@ -20,17 +20,17 @@ debug('finding webpack config %o', {
 })
 const webpackConfigPath =
   cypressWebpackConfigPath
-    ? path.resolve(
+    ? require.resolve(path.join(
         workspaceRoot,
         path.normalize(cypressWebpackConfigPath)
-      )
-    : path.resolve(
+      ))
+    : require.resolve(path.join(
         workspaceRoot,
         'node_modules',
         'react-scripts',
         'config',
         'webpack.config.js'
-      )
+      ))
 
 debug('path to react-scripts own webpack.config.js: %s', webpackConfigPath)
 
