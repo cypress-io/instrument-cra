@@ -5,6 +5,10 @@ const findYarnWorkspaceRoot = require('find-yarn-workspace-root')
 const workspaceRoot = findYarnWorkspaceRoot() || process.cwd()
 const packagePath = path.resolve(workspaceRoot, 'package.json')
 
+// sometimes we do want to instrument the production code
+const instrumentProduction = process.env.CYPRESS_INSTRUMENT_PRODUCTION
+const forced = instrumentProduction === 'true' || instrumentProduction === '1'
+
 let cypressWebpackConfigPath
 try {
   const package = require(packagePath)
@@ -35,15 +39,12 @@ const webpackConfigPath =
 debug('path to react-scripts own webpack.config.js: %s', webpackConfigPath)
 
 // Do this as the first thing so that any code reading it knows the right env.
-process.env.BABEL_ENV = 'development'
-process.env.NODE_ENV = 'development'
+process.env.BABEL_ENV = forced ? 'production': 'development'
+process.env.NODE_ENV = forced ? 'production' : 'development'
 
 const webpackFactory = require(webpackConfigPath)
 
 function fakeConfig(envName) {
-  // sometimes we do want to instrument the production code
-  const instrumentProduction = process.env.CYPRESS_INSTRUMENT_PRODUCTION
-  const forced = instrumentProduction === 'true' || instrumentProduction === '1'
   debug('checking the environment %o', {
     envName, instrumentProduction, forced
   })
