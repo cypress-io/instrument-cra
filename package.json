@@ -36,7 +36,7 @@
     "find-yarn-workspace-root": "^2.0.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.4.2",
+    "@cypress/code-coverage": "3.10.0",
     "check-code-coverage": "1.10.0",
     "cypress": "6.5.0",
     "prettier": "2.1.2",
